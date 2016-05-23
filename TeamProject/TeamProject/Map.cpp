@@ -17,7 +17,6 @@ int select_menu()
 	return key;
 }
 
-//맵은 가로70 세로21
 void draw_map()
 {
 	int i;
@@ -33,7 +32,6 @@ void draw_map()
 }
 
 
-//화면의 특정 위치로 이동해 출력하는 함수
 void draw_char(int x, int y, char* s)
 {
 	COORD Pos = { x * 2, y };

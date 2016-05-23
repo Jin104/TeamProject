@@ -4,6 +4,8 @@
 #include "start.h"
 #include <stdio.h>
 #include <conio.h>
+#include <Windows.h>
+#include <time.h>
 
 void Go()
 {
@@ -30,5 +32,44 @@ void Go()
 
 void game_start()
 {
+	POS snake[MAX],item;
+	int i, n = 0, dir = -1, len = 5;
+	int speed = 150;
+
+	srand(time(NULL));
+
 	draw_map();
+	first_snake(snake, len);
+
+	//∏‘¿Ãª—∏Æ±‚
+	item.x = rand() % 28 + 1;
+	item.y = rand() % 18 + 1;
+
+	while (1)
+	{
+		//√Êµπ √º≈©
+		if (check_snake(snake, len) == 0)
+		{
+			break;
+		}
+
+		//∏‘¿Ã ∏‘¿∏∏È ∏‘¿Ãª—∏Æ∞Ì ±Ê¿Ã+1
+		if (snake[0].x == item.x && snake[0].y == item.y)
+		{
+			
+			item.x = rand() % 28 + 1;
+			item.y = rand() % 18 + 1;
+
+			if (len < MAX)
+			{
+				snake[len] = snake[len - 1];
+				len++;
+			}
+		}
+
+		draw_char(item.x, item.y, "¢Ω");
+		move_snake(snake, len);
+		Sleep(speed);
+	}
+	
 }
