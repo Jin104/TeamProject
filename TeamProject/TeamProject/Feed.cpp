@@ -3,6 +3,10 @@
 #include <stdio.h>
 #include <Windows.h>
 
-void make_feed()
+POS item;
+
+void make_feed(POS item)
 {
+	//item.x = rand() % 28 + 1;
+	//item.y = rand() % 18 + 1;
 }

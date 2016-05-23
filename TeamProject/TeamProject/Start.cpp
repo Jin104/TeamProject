@@ -44,6 +44,7 @@ void game_start()
 	//∏‘¿Ãª—∏Æ±‚
 	item.x = rand() % 28 + 1;
 	item.y = rand() % 18 + 1;
+	//make_feed(item);
 
 	while (1)
 	{
@@ -72,4 +73,9 @@ void game_start()
 		Sleep(speed);
 	}
 	
+}
+
+void how_play()
+{
+
 }
