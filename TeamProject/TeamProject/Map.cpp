@@ -1,7 +1,4 @@
-#include "map.h"
-#include <stdio.h>
-#include <conio.h>
-#include <Windows.h>
+#include "start.h"
 
 
 int select_menu()
@@ -30,6 +27,8 @@ void draw_map()
 		draw_char(34, i, "□");
 	}
 	draw_char(0, 20, "□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□");
+
+	draw_char(10, 22, "ESC 일시정지");
 }
 
 

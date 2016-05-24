@@ -1,7 +1,4 @@
-#include "snake.h"
-#include "map.h"
-#include <stdio.h>
-#include <conio.h>
+#include "start.h"
 
 void move_snake(POS* snake, int len)
 {
@@ -29,6 +26,9 @@ void move_snake(POS* snake, int len)
 			case 77 :  //¡æ
 				dir = 3;
 				break;
+			case ESC :
+				system("pause>null");
+				break;
 			default:
 				break;
 		}
@@ -38,9 +38,14 @@ void move_snake(POS* snake, int len)
 	if (dir != -1)
 	{
 		int i;
+
 		draw_char(snake[len - 1].x, snake[len - 1].y, "  ");
 
-		for (i = len - 1; i>0; i--) snake[i] = snake[i - 1];
+		for (i = len - 1; i > 0; i--)
+		{
+			snake[i] = snake[i - 1];
+		}
+
 		draw_char(snake[1].x, snake[1].y, "¡á");
 	}
 
