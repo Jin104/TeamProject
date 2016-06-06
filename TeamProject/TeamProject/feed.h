@@ -1,3 +1,3 @@
 #pragma once
 
-//void make_feed(POS item);
+//void makeFeed(POS* item);

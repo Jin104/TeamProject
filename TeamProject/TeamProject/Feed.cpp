@@ -1,12 +1,9 @@
-#include "feed.h"
-#include "snake.h"
-#include <stdio.h>
-#include <Windows.h>
+#include "start.h"
 
-POS item;
+//POS item;
 
-void make_feed(POS item)
-{
-	//item.x = rand() % 28 + 1;
-	//item.y = rand() % 18 + 1;
-}
+//void makeFeed(POS* item)
+//{
+//	item.x = rand() % 28 + 1;
+//	item.y = rand() % 18 + 1;
+//}

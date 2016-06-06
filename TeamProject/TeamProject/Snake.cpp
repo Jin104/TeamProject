@@ -1,6 +1,6 @@
 #include "start.h"
 
-void move_snake(POS* snake, int len)
+void moveSnake(POS* snake, int len)
 {
 	static int dir = -1;
 
@@ -39,14 +39,14 @@ void move_snake(POS* snake, int len)
 	{
 		int i;
 
-		draw_char(snake[len - 1].x, snake[len - 1].y, "  ");
+		drawChar(snake[len - 1].x, snake[len - 1].y, "  ");
 
 		for (i = len - 1; i > 0; i--)
 		{
 			snake[i] = snake[i - 1];
 		}
 
-		draw_char(snake[1].x, snake[1].y, "¡á");
+		drawChar(snake[1].x, snake[1].y, "¡à");
 	}
 
 	// ¹ì ¸Ó¸® 
@@ -65,10 +65,10 @@ void move_snake(POS* snake, int len)
 			snake[0].x++; 
 			break;
 	}
-	draw_char(snake[0].x, snake[0].y, "¡á");
+	drawChar(snake[0].x, snake[0].y, "¡á");
 }
 
-int check_snake(POS* snake, int len)
+int checkSnake(POS* snake, int len)
 {
 	int i;
 
@@ -77,7 +77,7 @@ int check_snake(POS* snake, int len)
 	{
 		return 0;
 	}
-
+	
 	//¸Ó¸® ¸öÅë
 	for (i = 1; i < len; i++)
 	{
@@ -90,14 +90,14 @@ int check_snake(POS* snake, int len)
 	return 1;
 }
 
-int first_snake(POS* snake, int len)
+int firstSnake(POS* snake, int len)
 {
 	int i;
 	for (i = 0; i<len; i++)
 	{
 		snake[i].x = 15 + i;
 		snake[i].y = 10;
-		draw_char(snake[i].x, snake[i].y, "¡á");
+		drawChar(snake[i].x, snake[i].y, "¡à");
 	}
 	return 1;
 }
