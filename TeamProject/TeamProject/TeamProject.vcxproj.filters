@@ -21,13 +21,13 @@
     <ClCompile Include="Snake.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Feed.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Program.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Start.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Rank.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,10 +38,10 @@
     <ClInclude Include="snake.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="feed.h">
+    <ClInclude Include="start.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="start.h">
+    <ClInclude Include="rank.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

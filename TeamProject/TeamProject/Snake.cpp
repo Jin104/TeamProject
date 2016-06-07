@@ -99,5 +99,6 @@ int firstSnake(POS* snake, int len)
 		snake[i].y = 10;
 		drawChar(snake[i].x, snake[i].y, "бр");
 	}
+	getch() == '\n';
 	return 1;
 }

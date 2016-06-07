@@ -1,5 +1,5 @@
 #pragma once
-#include "feed.h"
+#include "rank.h"
 #include "snake.h"
 #include "map.h"
 #include <stdio.h>
@@ -9,11 +9,11 @@
 
 void Go();
 void gameStart();
-void ranking(int score);
-void showRanking();
+
 
 #define ESC 0x1B
-#define LEFT 75
-#define RIGHT 77
-#define UP 72
-#define DOWN 80
+
+//#define LEFT 75
+//#define RIGHT 77
+//#define UP 72
+//#define DOWN 80
