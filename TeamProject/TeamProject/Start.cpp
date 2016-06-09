@@ -1,7 +1,5 @@
 #include "start.h"
 
-
-
 void Go()
 {
 	int key = 0;
@@ -33,9 +31,11 @@ void Go()
 
 }
 
+POS snake[MAX],item,item2;
+
 void gameStart()
 {
-	POS snake[MAX],item;
+
 	int n = 0, score = 0,dir = -1, len = 5, count=0;
 	int speed = 150;
 
@@ -51,36 +51,6 @@ void gameStart()
 	drawChar(1, 22, "Score : ");
 	getchar();
 
-
-
-	while (1)
-	{
-		int food_crush = 0, r = 0, i;
-		
-		srand((unsigned)time(NULL) + r);
-		item.x = rand() % 28 + 1;
-		item.y = rand() % 18 + 1;
-
-		for (i = 0; i < len; i++)
-		{
-			if ((snake[i].x == item.x) && (snake[i].y == item.y))
-			{
-				food_crush = 1;
-				r++;
-				break;
-			}
-			if (food_crush == 1)
-			{
-				continue;
-				
-			}
-			drawChar(item.x, item.y, "¡Ü");
-		}
-		
-	}
-
-
-
 	while (1)
 	{
 		//Ãæµ¹ Ã¼Å©
@@ -92,25 +62,7 @@ void gameStart()
 		//¸ÔÀÌ ¸ÔÀ¸¸é ¸ÔÀÌ»Ñ¸®°í ±æÀÌ+1
 		if (snake[0].x == item.x && snake[0].y == item.y)
 		{
-			int food_crush = 0,r = 0, i;
-			item.x = rand() % 28 + 1;
-			item.y = rand() % 18 + 1;
-			for (i = 0; i < len; i++)
-			{
-				if ((snake[i].x == item.x) && (snake[i].y == item.y))
-				{
-					food_crush = 1;
-					r++;
-					break;
-				}
-			}
-			if (food_crush == 1)
-			{
-				srand((unsigned)time(NULL) + r);
-				item.x = rand() % 28 + 1;
-				item.y = rand() % 18 + 1;
-			}
-
+			resetItem(len);
 			score += 10;
 			drawChar(1, 22, "Score : ");
 			printf("%d", score);
@@ -120,15 +72,36 @@ void gameStart()
 				snake[len] = snake[len - 1];
 				len++;
 				count++;
+
 				if (count % 2 == 0)
 				{
 					speed = speed - 8;
 				}
+
+	/*			if (count % 1 == 0)
+				{
+					item2.x = rand() % 28 + 1;
+					item2.y = rand() % 18 + 1;
+					resetItem(len);
+					drawChar(item2.x, item2.y, "¡Ú");
+
+				}
+			if (snake[0].x == item2.x && snake[0].y == item2.y)
+			{
+				speed = speed + 20;
+			}*/
+
+
 			}
+
+			
+
 		}
 		
 		setColorRed();	
 		drawChar(item.x, item.y, "¡Ü");
+
+
 		setColorWhite();
 		moveSnake(snake, len);
 		Sleep(speed);
@@ -137,3 +110,48 @@ void gameStart()
 	ranking(score);
 	system("pause");
 }
+
+
+void resetItem(int len)
+{
+	int food_crush = 0, r = 0, i;
+	item.x = rand() % 28 + 1;
+	item.y = rand() % 18 + 1;
+	for (i = 0; i < len; i++)
+	{
+		if ((snake[i].x == item.x) && (snake[i].y == item.y))
+		{
+			food_crush = 1;
+			r++;
+			break;
+		}
+	}
+	if (food_crush == 1)
+	{
+		srand((unsigned)time(NULL) + r);
+		item.x = rand() % 28 + 1;
+		item.y = rand() % 18 + 1;
+	}
+}
+
+//void resetItem2(int len)
+//{
+//	int food_crush = 0, r = 0, i;
+//	item2.x = rand() % 28 + 1;
+//	item2.y = rand() % 18 + 1;
+//	for (i = 0; i < len; i++)
+//	{
+//		if ((snake[i].x == item2.x) && (snake[i].y == item2.y))
+//		{
+//			food_crush = 1;
+//			r++;
+//			break;
+//		}
+//	}
+//	if (food_crush == 1)
+//	{
+//		srand((unsigned)time(NULL) + r);
+//		item2.x = rand() % 28 + 1;
+//		item2.y = rand() % 18 + 1;
+//	}
+//}
