@@ -66,12 +66,12 @@ void drawChar(int x, int y, char* s)
 	printf("%s", s);
 }
 
-void setColorRed()
-{
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-}
-
-void setColorWhite()
-{
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
-}
+//void setColorRed()
+//{
+//	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+//}
+//
+//void setColorWhite()
+//{
+//	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+//}

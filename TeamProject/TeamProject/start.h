@@ -9,6 +9,8 @@
 
 void Go();
 void gameStart();
+void resetItem(int len);
+void resetItem2(int len);
 
 
 #define ESC 0x1B
