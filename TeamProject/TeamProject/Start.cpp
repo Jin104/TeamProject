@@ -75,11 +75,10 @@ void gameStart()
 
 				if (count % 2 == 0)
 				{
-					speed = speed - 18;
-					count2++;
+					speed = speed - 28;
 				}
 
-				if (count % 3 == 0)
+				if (count % 1 == 0)
 				{
 					resetItem2(len);
 					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
@@ -88,13 +87,12 @@ void gameStart()
 				}
 
 			}
-
+			
 		}
-			if ((snake[0].x == item2.x) && (snake[0].y == item2.y))
-			{
-				speed = speed + 50;
-				Sleep(speed);
-			}	
+		if ((snake[0].x == item2.x) && (snake[0].y == item2.y))
+		{
+			speed += 22;
+		}
 
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
 		drawChar(item.x, item.y, "¢¾");
@@ -103,7 +101,7 @@ void gameStart()
 		Sleep(speed);
 	}
 
-
+	
 
 	system("cls");
 	ranking(score);
