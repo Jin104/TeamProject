@@ -8,13 +8,13 @@ int selectMenu()
 
 	printf("\n\n\n");
 	puts("        □□□  □    □    □□   □    □  □□□      □□      □□    □      □  □□□    ");
-	puts("        □      □□  □  □    □ □  □    □        □        □    □  □□  □□  □");
-	puts("        □□□  □□  □  □□□□ □□      □□□    □  □□  □□□□  □  □  □  □□□");
-	puts("            □  □  □□  □    □ □  □    □        □    □  □    □  □  □  □  □");
-	puts("            □  □  □□  □    □ □    □  □        □    □  □    □  □  □  □  □");
-	puts("        □□□  □    □  □    □ □    □  □□□      □□    □    □  □  □  □  □□□");
+	puts("        □      □□  □  □    □ □  □    □        □        □    □  □□  □□  □        ");
+	puts("        □□□  □□  □  □□□□ □□      □□□    □  □□  □□□□  □  □  □  □□□    ");
+	puts("            □  □  □□  □    □ □  □    □        □    □  □    □  □  □  □  □        ");
+	puts("            □  □  □□  □    □ □    □  □        □    □  □    □  □  □  □  □        ");
+	puts("        □□□  □    □  □    □ □    □  □□□      □□    □    □  □  □  □  □□□    ");
 	
-	drawChar(22, 11, "Made by Jin");
+	drawChar(20, 11, "Made by Que Sera Sera");
 	drawChar(20, 13, " ─────────\n");
 	drawChar(20, 14, "│1. 게임시작     │\n");
 	drawChar(20, 15, "│2. 게임방법     │\n");
@@ -64,4 +64,14 @@ void drawChar(int x, int y, char* s)
 	COORD Pos = { x * 2, y };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Pos);
 	printf("%s", s);
+}
+
+void setColorRed()
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+}
+
+void setColorWhite()
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }

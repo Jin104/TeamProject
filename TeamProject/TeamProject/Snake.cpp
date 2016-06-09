@@ -39,14 +39,14 @@ void moveSnake(POS* snake, int len)
 	{
 		int i;
 
-		drawChar(snake[len - 1].x, snake[len - 1].y, "  ");
+		drawChar(snake[len - 1].x, snake[len - 1].y, "  "); //¸öÅëÀÇ ¸¶Áö¸·À» Áö¿ò
 
 		for (i = len - 1; i > 0; i--)
 		{
-			snake[i] = snake[i - 1];
+			snake[i] = snake[i - 1];	//¸öÅëÀÇ ÁÂÇ¥¸¦ ÇÑÄ­¾¿ ¿Å±è
 		}
-
-		drawChar(snake[1].x, snake[1].y, "¡à");
+		
+		drawChar(snake[1].x, snake[1].y, "¡à");	
 	}
 
 	// ¹ì ¸Ó¸® 
@@ -65,7 +65,7 @@ void moveSnake(POS* snake, int len)
 			snake[0].x++; 
 			break;
 	}
-	drawChar(snake[0].x, snake[0].y, "¡á");
+	drawChar(snake[0].x, snake[0].y, "¡á");	//»õ·Î¿î ÁÂÇ¥¿¡ ¹ì ¸Ó¸® ±×¸²
 }
 
 int checkSnake(POS* snake, int len)
