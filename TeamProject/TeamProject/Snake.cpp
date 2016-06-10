@@ -4,6 +4,7 @@ void moveSnake(POS* snake, int len)
 {
 	static int dir = -1;
 
+	//Å°º¸µå °ª ÀÔ·Â
 	if (kbhit())
 	{
 		int key;
@@ -34,7 +35,7 @@ void moveSnake(POS* snake, int len)
 		}
 	}
 
-	// ¹ì ¸öÅë
+	// ¹ì ¸öÅë ÀÌµ¿
 	if (dir != -1)
 	{
 		int i;
@@ -49,7 +50,7 @@ void moveSnake(POS* snake, int len)
 		drawChar(snake[1].x, snake[1].y, "¡à");	
 	}
 
-	// ¹ì ¸Ó¸® 
+	// ¹ì ¸Ó¸® ÀÌµ¿
 	switch (dir)
 	{
 		case 0: 
@@ -72,13 +73,13 @@ int checkSnake(POS* snake, int len)
 {
 	int i;
 
-	//¸Ó¸® º®
+	//¸Ó¸®ÀÇ ÁÂÇ¥¿Í º®ÀÇ ÁÂÇ¥°¡ ¸¸³ª¸é ÁßÁö
 	if (snake[0].x == 0 || snake[0].y == 0 || snake[0].x == 34 || snake[0].y == 20)
 	{
 		return 0;
 	}
 	
-	//¸Ó¸® ¸öÅë
+	//¸Ó¸®ÀÇ ÁÂÇ¥¿Í ¸öÅëÀÇ ÁÂÇ¥°¡ ¸¸³ª¸é ÁßÁö
 	for (i = 1; i < len; i++)
 	{
 		if (snake[0].x == snake[i].x&&snake[0].y == snake[i].y)
@@ -95,10 +96,13 @@ int firstSnake(POS* snake, int len)
 	int i;
 	for (i = 0; i<len; i++)
 	{
+		//ÁÂÇ¥¼³Á¤,Ãâ·Â
 		snake[i].x = 15 + i;
 		snake[i].y = 10;
 		drawChar(snake[i].x, snake[i].y, "¡à");
 	}
+
+	//ÀÔ·Â°ª ÃÊ±âÈ­
 	getch() == '\n';
 	return 1;
 }

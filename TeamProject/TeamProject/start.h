@@ -7,10 +7,11 @@
 #include <Windows.h>
 #include <time.h>
 
-void Go();
-void gameStart();
-void resetItem(int len);
-void resetItem2(int len);
+void Go(); // 실행
+void gameStart();  //게임 실행
+
+//먹이의 생성좌표와 뱀의 좌표가 겹치지않게.
+void resetItem(int len); 
 
 
 #define ESC 0x1B

@@ -1,5 +1,6 @@
 #pragma once
 
+// x,y좌표를 지정
 typedef struct {
 	int x, y;
 }  POS;
@@ -9,5 +10,3 @@ typedef struct {
 void moveSnake(POS* snake, int len); //뱀이동
 int checkSnake(POS* snake, int len); //충돌체크
 int firstSnake(POS* snake, int len); //뱀 초기위치
-void resetItem(int len); //안겹치게
-//void resetItem2(int len);

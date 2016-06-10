@@ -11,7 +11,7 @@ void ranking(int score)
 	printf("\t\t\t\tGame Over!\n\n\n");
 	printf("\t\t\t이름을 입력하세요 :  ");
 
-	scanf("%s", name);
+	gets_s(name);
 
 	printf("\n\t\t\t    %s의 점수는 %d\n", name, score);
 	nameCount++;

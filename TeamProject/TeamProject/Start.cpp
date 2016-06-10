@@ -1,5 +1,7 @@
 #include "start.h"
 
+POS snake[MAX], item, item2;
+
 void Go()
 {
 	int key = 0;
@@ -30,23 +32,22 @@ void Go()
 	}
 }
 
-POS snake[MAX], item, item2;
 
 void gameStart()
 {
-
+	//각 변수 초기화
 	int n = 0, score = 0, dir = -1, len = 5, count = 0,count2=0;
 	int speed = 150;
 
 	srand(time(NULL));
 
+    //맵을 그리고, 뱀의 처음위치 지정
 	drawMap();
 	firstSnake(snake, len);
 
-	//먹이뿌리기
+	//먹이 좌표 지정
 	item.x = rand() % 28 + 1;
 	item.y = rand() % 18 + 1;
-
 
 	drawChar(1, 22, "Score : ");
 	getchar();
@@ -59,51 +60,47 @@ void gameStart()
 			break;
 		}
 
-		//먹이 먹으면 먹이뿌리고 길이+1
+		//먹이 먹으면 먹이좌표 재설정 뱀꼬리+1
 		if (snake[0].x == item.x && snake[0].y == item.y)
 		{
+			//좌표 설정, 점수 증가
 			resetItem(len);
 			score += 10;
 			drawChar(1, 22, "Score : ");
 			printf("%d", score);
 
+			//꼬리길이가 최대보다 적으면
 			if (len < MAX)
 			{
 				snake[len] = snake[len - 1];
 				len++;
 				count++;
 
-				if (count % 2 == 0)
-				{
-					speed = speed - 28;
-				}
-
+				//속도 증가
 				if (count % 1 == 0)
 				{
-					resetItem2(len);
-					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
-					drawChar(item2.x, item2.y, "★");
-					SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+					speed = speed - 10;
 				}
 
 			}
 			
 		}
-		if ((snake[0].x == item2.x) && (snake[0].y == item2.y))
-		{
-			speed += 22;
-		}
-
+	
+		//색 설정, 먹이 출력
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
 		drawChar(item.x, item.y, "♥");
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+
+		//뱀 이동구현
 		moveSnake(snake, len);
+
+		//속도 지정
 		Sleep(speed);
 	}
 
-	
-
 	system("cls");
+	
+	// 이름입력받고 점수 저장, 랭킹 기록
 	ranking(score);
 	system("pause");
 }
@@ -112,10 +109,14 @@ void gameStart()
 void resetItem(int len)
 {
 	int food_crush = 0, r = 0, i;
+
+	//아이템 좌표 설정
 	item.x = rand() % 28 + 1;
 	item.y = rand() % 18 + 1;
+
 	for (i = 0; i < len; i++)
 	{
+		//뱀좌표와 먹이의 좌표가 충돌하면 crush=1
 		if ((snake[i].x == item.x) && (snake[i].y == item.y))
 		{
 			food_crush = 1;
@@ -125,37 +126,9 @@ void resetItem(int len)
 	}
 	if (food_crush == 1)
 	{
+		//좌표 재설정
 		srand((unsigned)time(NULL) + r);
 		item.x = rand() % 28 + 1;
 		item.y = rand() % 18 + 1;
-	}
-}
-
-void resetItem2(int len)
-{
-	int food_crush = 0, r = 0, i;
-	item2.x = rand() % 28 + 1;
-	item2.y = rand() % 18 + 1;
-	for (i = 0; i < len; i++)
-	{
-		if ((snake[i].x == item2.x) && (snake[i].y == item2.y))
-		{
-			food_crush = 1;
-			r++;
-			break;
-		}
-
-		else if ((item.x == item2.x) && (item.y == item2.y))
-		{
-			food_crush = 1;
-			r++;
-			break;
-		}
-	}
-	if (food_crush == 1)
-	{
-		srand((unsigned)time(NULL) + r);
-		item2.x = rand() % 28 + 1;
-		item2.y = rand() % 18 + 1;
 	}
 }
