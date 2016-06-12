@@ -77,9 +77,9 @@ void gameStart()
 				count++;
 
 				//속도 증가
-				if (count % 1 == 0)
+				if (count % 2 == 0)
 				{
-					speed = speed - 10;
+					speed = speed - 8;
 				}
 
 			}
