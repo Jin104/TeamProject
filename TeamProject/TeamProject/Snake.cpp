@@ -69,6 +69,22 @@ void moveSnake(POS* snake, int len)
 	drawChar(snake[0].x, snake[0].y, "■");	//새로운 좌표에 뱀 머리 그림
 }
 
+int firstSnake(POS* snake, int len)
+{
+	int i;
+	for (i = 0; i<len; i++)
+	{
+		//좌표설정,출력
+		snake[i].x = 15 + i;
+		snake[i].y = 10;
+		drawChar(snake[i].x, snake[i].y, "□");
+	}
+
+	//입력값 초기화
+	getch() == '\n';
+	return 1;
+}
+
 int checkSnake(POS* snake, int len)
 {
 	int i;
@@ -88,21 +104,5 @@ int checkSnake(POS* snake, int len)
 		}
 	}
 
-	return 1;
-}
-
-int firstSnake(POS* snake, int len)
-{
-	int i;
-	for (i = 0; i<len; i++)
-	{
-		//좌표설정,출력
-		snake[i].x = 15 + i;
-		snake[i].y = 10;
-		drawChar(snake[i].x, snake[i].y, "□");
-	}
-
-	//입력값 초기화
-	getch() == '\n';
 	return 1;
 }
